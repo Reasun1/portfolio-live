@@ -1,0 +1,171 @@
+/* Custom CSS for Portfolio */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
+
+/* Navigation links */
+.nav-link {
+    @apply text-gray-300 hover:text-primary transition-colors duration-300 relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #3b82f6;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.mobile-nav-link {
+    @apply block px-3 py-2 text-gray-300 hover:text-primary hover:bg-gray-800 rounded-md transition-colors duration-300;
+}
+
+/* Buttons */
+.btn-primary {
+    @apply inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+    @apply inline-flex items-center px-6 py-3 bg-transparent text-white font-semibold rounded-lg border-2 border-primary hover:bg-primary transition-all duration-300 transform hover:scale-105;
+}
+
+/* Social links */
+.social-link {
+    @apply w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-110;
+}
+
+/* Project cards */
+.project-card {
+    @apply bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700 hover:border-primary;
+}
+
+/* Tech tags */
+.tech-tag {
+    @apply px-3 py-1 bg-gray-700 text-gray-300 text-sm rounded-full;
+}
+
+/* Form inputs */
+.form-input, .form-textarea {
+    @apply w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-all duration-300;
+}
+
+.form-textarea {
+    @apply resize-none;
+}
+
+/* Animation delays for staggered animations */
+.animate-slide-up:nth-child(1) { animation-delay: 0.1s; }
+.animate-slide-up:nth-child(2) { animation-delay: 0.2s; }
+.animate-slide-up:nth-child(3) { animation-delay: 0.3s; }
+
+.animate-bounce-in:nth-child(1) { animation-delay: 0.1s; }
+.animate-bounce-in:nth-child(2) { animation-delay: 0.2s; }
+.animate-bounce-in:nth-child(3) { animation-delay: 0.3s; }
+
+/* Loading animation */
+.loading {
+    @apply animate-pulse bg-gray-700 rounded;
+}
+
+/* Custom animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(45deg, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Glass morphism effect */
+.glass {
+    background: rgba(31, 41, 55, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-card {
+        @apply transform-none hover:-translate-y-1;
+    }
+    
+    .social-link {
+        @apply w-10 h-10;
+    }
+}
+
+/* Focus styles for accessibility */
+button:focus, a:focus, input:focus, textarea:focus {
+    @apply outline-none ring-2 ring-primary ring-opacity-50;
+}
+
+/* Print styles */
+@media print {
+    .nav-link::after,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .social-link:hover,
+    .project-card:hover {
+        all: unset;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn-primary {
+        @apply border-2 border-white;
+    }
+    
+    .btn-secondary {
+        @apply border-2 border-white bg-white text-black;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+} 
